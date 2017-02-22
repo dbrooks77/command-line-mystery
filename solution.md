@@ -1,63 +1,66 @@
-```zsh
-# Clone the initial repository
-git clone git@github.com:eerwitt/command-line-mystery.git
-cd command-line-mystery
+crimescene:CLUE: Footage from an ATM security camera is blurry but shows that the perpetrator is a tall male, at least 6'.
 
-# Check the status to see if anything is already marked as new (shouldn't be)
-git status
+crimescene:CLUE: Found a wallet believed to belong to the killer: no ID, just loose change, and membership cards for AAA, Delta SkyMiles, the local library, and the Museum of Bash History. The cards are totally untraceable and have no name, for some reason.
 
-# Edit my solution file
-subl solution.md
+crimescene:CLUE: Questioned the barista at the local coffee shop. He said a woman left right before they heard the shots. The name on her latte was Annabel, she had blond spiky hair and a New Zealand accent.
 
-# Commit initial solution
-git add solution.md
-git commit -a
 
-# Start reading the instructions
-less instructions
 
-# Check for clues in the mystery
-cd mystery
-grep CLUE ./crimescene
+people:Annabel Sun	F	26	Hart Place, line 40
 
-# Search for person with the Latte
-grep Annabel ./people
+people:Oluwasegun Annabel	M	37	Mattapan Street, line 173
 
-# Knock on her door
-less streets/Mattapan_Street
-# Goto line in file using less: http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
-# in less type 173g
-# Try different interviews
-less interviews/interview-47246024
+people:Annabel Church	F	38	Buckingham Place, line 179
 
-less interviews/interview-699607
+people:Annabel Fuglsang	M	40	Haley Street, line 176
 
-# Checking for vehicle
-less vehicles
-# Search in less for vehicles starting with L337 and ending in 9
-# in less /L337..9
-# Check which are over 6'
-# Katie Park
-# Mike Bostock
-# John Keefe
-# Erika Owens
-# Matt Waite
-# Brian Boyer
-# Al Shaw
-# Miranda Mulligan
-# Joe Germuska
-# Jeremy Bowers
-# Jacqui Maher
 
-# Check which is male/female and get their names
-egrep '((Katie Park)|(Mike Bostock)|(John Keefe)|(Erika Owens)|(Matt Waite)|(Brian Boyer)|(Al Shaw)|(Miranda Mulligan)|(Joe Germuska)|(Jeremy Bowers)|(Jacqui Maher))' ./people | grep '\tM\t' | cut -f1
 
-# Limit down by membership
-egrep -R '((Joe Germuska)|(Brian Boyer)|(Mike Bostock)|(Jeremy Bowers)|(John Keefe)|(Al Shaw)|(Matt Waite))' ./memberships
 
-# (Jeremy Bowers)|(Brian Boyer)|(Mike Bostock)|(Matt Waite)
-# Not MB, wrong car color
-# Not MW, wrong car manufacturer
-# Not BB, wrong car manufacturer
-# JB, it is JB
-```
+
+interview-290346:Is a SkyMiles, TCPL, Museum of Bash History, and AAA member.
+
+Drives a similar car to the description.
+
+Is a SkyMiles, TCPL, Museum of Bash History, and AAA member.
+
+Bostock is 6' 4", easily tall enough to match the camera footage.
+
+However, upon questioning, Bostock can prove that he was out of town on the morning of the murder, multiple witnesses and credit card transactions confirm.
+
+
+grep: streets: Is a directory
+vehicles:License Plate L337ZR9
+vehicles:License Plate L337P89
+vehicles:License Plate L337GX9
+vehicles:License Plate L337QE9
+vehicles:License Plate L337GB9
+vehicles:License Plate L337OI9
+vehicles:License Plate L337X19
+vehicles:License Plate L337539
+vehicles:License Plate L3373U9
+vehicles:License Plate L337369
+vehicles:License Plate L337DV9
+vehicles:License Plate L3375A9
+vehicles:License Plate L337WR9
+
+
+interview-699607
+
+
+*********************************************
+KILLER
+
+License Plate L3375A9
+Make: Honda
+Color: Blue
+Owner: Jeremy Bowers
+Height: 6'1"
+Weight: 204 lbs
+
+*******COMMANDS********
+grep 
+head
+ls
+grep -A
+cd
